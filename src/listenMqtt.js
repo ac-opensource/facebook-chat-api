@@ -410,9 +410,9 @@ module.exports = function (df, api, ctx) {
 			})
 		};
 
-		defaultFuncs
+		df
 			.post("https://www.facebook.com/api/graphqlbatch/", ctx.jar, form)
-			.then(utils.parseAndCheckLogin(ctx, defaultFuncs))
+			.then(utils.parseAndCheckLogin(ctx, df))
 			.then((resData) => {
 				if (resData[resData.length - 1].error_results > 0) {
 					throw resData[0].o0.errors;
